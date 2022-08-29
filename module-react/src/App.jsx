@@ -1,5 +1,5 @@
-import Header from '../Header/Header';
-import Cards from '../Cards/Cards';
+import Header from './components/Header/Header';
+import Cards from './components/Cards/Cards';
 
 import './App.css';
 

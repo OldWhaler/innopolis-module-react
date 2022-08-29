@@ -1,5 +1,5 @@
 import Card from "../Card/Card";
-import { products } from '../../data/products';
+import { products } from '../../products';
 
 import './Cards.css'
 
