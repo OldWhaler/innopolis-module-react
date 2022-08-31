@@ -1,13 +1,13 @@
-import Header from './components/Header/Header';
-import Cards from './components/Cards/Cards';
+import Productspage from './pages/Productspage';
+// import Basket from './Pages/Basket';
 
 import './App.css';
 
 function App() {
   return (
     <div className="container">
-      <Header />
-      <Cards />
+      <Productspage />
+      {/* <Basket /> */}
     </div>
   );
 }

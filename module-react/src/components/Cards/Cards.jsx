@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
-import { products } from '../../products';
+import { products } from '../../products-list';
 
-import './Cards.css'
+import './Cards.scss'
 
 function Cards(props) {
   return (

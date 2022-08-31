@@ -1,4 +1,4 @@
-import './Card.css';
+import './Card.scss';
 
 function Card(props) {
   const { id, name, description, price, weight, img } = props.data;
@@ -9,7 +9,6 @@ function Card(props) {
         <h2 className="card__title">{name}</h2>
         <p className="card__desc">{description}</p>
       </div>
-
 
       <div className="card__info">
         <p className="card__dish-info">

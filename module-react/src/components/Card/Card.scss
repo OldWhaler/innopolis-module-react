@@ -1,0 +1,83 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 43px 21px 30px 21px;
+  width: 310px;
+  height: 552px;
+  color: #FFFFFF;
+  border: 1px solid #D58C51;
+  transition-duration: 200ms;
+
+  &:hover {
+    color: #D58C51;
+  }
+
+  &__img {
+    margin-bottom: 31px;
+  }
+
+  &__title {
+    margin-bottom: 9px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  &__desc {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__dish-price {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  &__dish-weight {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    transition-duration: 200ms;
+
+    &:hover {
+      background-color: #D58C51;
+      border: 1px solid #D58C51;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 13px;
+      background-color: #fff;
+      border-radius: 1px;
+
+      position: absolute;
+      left: 7px;
+      top: 13px;
+    }
+
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
+}
