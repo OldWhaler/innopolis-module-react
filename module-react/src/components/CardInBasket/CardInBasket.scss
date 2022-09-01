@@ -1,0 +1,53 @@
+.card-in-basket {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+
+  &__img {
+    width: 122px;
+    height: 122px;
+    margin-right: 100px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 21px;
+    flex-grow: 1;
+  }
+
+  &__price {
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+
+    color: #D58C51;
+  }
+
+  &__button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #D58C51;
+    border-radius: 50%;
+    background-color: transparent;
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 13px;
+      display: block;
+      height: 1px;
+      width: 15px;
+      background-color: #D58C51;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(135deg);
+    }
+  }
+}

@@ -1,10 +1,12 @@
-import { React, useState } from 'react';
 import Header from '../components/Header/Header';
-import Cards from '../components/Cards/Cards';
+import Cards from '../components/CardsList/CardsList';
 
-function Productspage() {
-  let [basketCounter, setBasketCounter] = useState(0);
-  let [basketSum, setbasketSum] = useState(0);
+function Productspage({ basketCounter,
+  setBasketCounter,
+  basketSum,
+  setbasketSum,
+  prodInBasetIdList,
+  setProdInBasetIdList }) {
 
   return (
     <div className="container">
@@ -14,6 +16,8 @@ function Productspage() {
         setBasketCounter={setBasketCounter}
         basketSum={basketSum}
         setbasketSum={setbasketSum}
+        prodInBasetIdList={prodInBasetIdList}
+        setProdInBasetIdList={setProdInBasetIdList}
       />
     </div>
   );
