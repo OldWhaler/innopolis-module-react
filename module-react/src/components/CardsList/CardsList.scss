@@ -5,4 +5,8 @@
   row-gap: 35px;
   height: calc(100vh - 173px);
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
