@@ -12,8 +12,8 @@ function Card(props) {
 
       <div className="card__info">
         <p className="card__dish-info">
-          <span className='card__dish-price'>{`${price} ₽`}</span>
-          <sub className="card__dish-weight">{` /${weight}`}</sub>
+          <span className='card__dish-price'>{price}&#8381;</span>
+          <sub className="card__dish-weight">/{weight}</sub>
         </p>
         <button className='card__button' data-dish-id={id}></button>
       </div>

@@ -13,7 +13,7 @@ function Basketpage({ basketSum, prodInBasetIdList, setProdInBasetIdList, setbas
           basketSum={basketSum}
         />
         <footer className="basket__footer">
-          <p className="basket__sum">Заказ на сумму: <span>{basketSum} ₽</span></p>
+          <p className="basket__sum">Заказ на сумму: <span>{basketSum} &#8381;</span></p>
           <button className="basket__button">Оформить заказ</button>
         </footer>
       </div>
