@@ -2,18 +2,18 @@ import { products } from '../../products-list';
 
 import './CardInBasket.scss'
 
-function CardInBasket({ prodId,
-  prodInBasetIdList,
+function CardInBasket({
+  prodId,
   setProdInBasetIdList,
-  basketSum,
   setbasketSum }) {
+
   const product = products.filter(item => item.id === prodId)[0];
 
   function buttonClickHandler() {
-    const newProdList = prodInBasetIdList.filter(item => item !== prodId);
-    setProdInBasetIdList(newProdList);
-    setbasketSum(basketSum - product.price)
+    setProdInBasetIdList(currentProdInBasetIdList => currentProdInBasetIdList.filter(item => item !== prodId));
+    setbasketSum(currentBasketSum => currentBasketSum - product.price)
   }
+
   return (
     <div className="card-in-basket" >
       <img src={`images/${product.img}`} alt="" className="card-in-basket__img" />

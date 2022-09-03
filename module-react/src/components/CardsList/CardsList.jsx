@@ -4,10 +4,7 @@ import { products } from '../../products-list';
 import './CardsList.scss'
 
 function Cards({ setBasketCounter,
-  basketCounter,
-  basketSum,
   setbasketSum,
-  prodInBasetIdList,
   setProdInBasetIdList }) {
 
   function cardsClickHandler(event) {
@@ -17,9 +14,9 @@ function Cards({ setBasketCounter,
 
     const dish = products.filter(item => item.id === dishId)[0];
 
-    setProdInBasetIdList([...prodInBasetIdList, dishId])
-    setbasketSum(basketSum + +dish.price)
-    setBasketCounter(++basketCounter);
+    setProdInBasetIdList((currentProdInBasetIdList) => [...currentProdInBasetIdList, dishId]);
+    setbasketSum((currenBasketSum) => currenBasketSum + +dish.price);
+    setBasketCounter((currentCounter) => currentCounter + 1);
   }
 
   return (

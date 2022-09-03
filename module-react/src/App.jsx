@@ -19,30 +19,15 @@ function App() {
             setBasketCounter={setBasketCounter}
             basketSum={basketSum}
             setbasketSum={setbasketSum}
-            prodInBasetIdList={prodInBasetIdList}
             setProdInBasetIdList={setProdInBasetIdList} />
         } />
         <Route path='basket' element={
           <Basketpage
-            basketSum={basketSum}
             setbasketSum={setbasketSum}
             prodInBasetIdList={prodInBasetIdList}
             setProdInBasetIdList={setProdInBasetIdList} />
         } />
       </Routes>
-      {/* <Productspage
-        basketCounter={basketCounter}
-        setBasketCounter={setBasketCounter}
-        basketSum={basketSum}
-        setbasketSum={setbasketSum}
-        prodInBasetIdList={prodInBasetIdList}
-        setProdInBasetIdList={setProdInBasetIdList}
-      /> */}
-      {/* <Basketpage
-        basketSum={basketSum}
-        prodInBasetIdList={prodInBasetIdList}
-        setProdInBasetIdList={setProdInBasetIdList}
-      /> */}
     </div>
   );
 }
