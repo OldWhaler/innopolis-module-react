@@ -23,6 +23,7 @@ function App() {
         } />
         <Route path='basket' element={
           <Basketpage
+            basketSum={basketSum}
             setbasketSum={setbasketSum}
             prodInBasetIdList={prodInBasetIdList}
             setProdInBasetIdList={setProdInBasetIdList} />
