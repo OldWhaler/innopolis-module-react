@@ -19,6 +19,7 @@ function App() {
             setBasketCounter={setBasketCounter}
             basketSum={basketSum}
             setbasketSum={setbasketSum}
+            prodInBasetIdList={prodInBasetIdList}
             setProdInBasetIdList={setProdInBasetIdList} />
         } />
         <Route path='basket' element={
@@ -26,7 +27,8 @@ function App() {
             basketSum={basketSum}
             setbasketSum={setbasketSum}
             prodInBasetIdList={prodInBasetIdList}
-            setProdInBasetIdList={setProdInBasetIdList} />
+            setProdInBasetIdList={setProdInBasetIdList}
+            setBasketCounter={setBasketCounter} />
         } />
       </Routes>
     </div>

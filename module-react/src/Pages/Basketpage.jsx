@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './Basketpage.scss'
 
-function Basketpage({ basketSum, prodInBasetIdList, setProdInBasetIdList, setbasketSum }) {
+function Basketpage({ basketSum, prodInBasetIdList, setProdInBasetIdList, setbasketSum, setBasketCounter }) {
   return (
     <div className="basket-container">
       <div className="basket">
@@ -11,6 +11,7 @@ function Basketpage({ basketSum, prodInBasetIdList, setProdInBasetIdList, setbas
         <CardInBasketList
           prodInBasetIdList={prodInBasetIdList}
           setProdInBasetIdList={setProdInBasetIdList}
+          setBasketCounter={setBasketCounter}
           setbasketSum={setbasketSum}
           basketSum={basketSum}
         />

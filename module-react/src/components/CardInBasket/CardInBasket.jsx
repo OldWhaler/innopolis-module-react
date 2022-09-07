@@ -5,13 +5,15 @@ import './CardInBasket.scss'
 function CardInBasket({
   prodId,
   setProdInBasetIdList,
-  setbasketSum }) {
+  setbasketSum,
+  setBasketCounter }) {
 
   const product = products.filter(item => item.id === prodId)[0];
 
   function buttonClickHandler() {
     setProdInBasetIdList(currentProdInBasetIdList => currentProdInBasetIdList.filter(item => item !== prodId));
     setbasketSum(currentBasketSum => currentBasketSum - product.price)
+    setBasketCounter(currentBusketCounter => currentBusketCounter - 1)
   }
 
   return (

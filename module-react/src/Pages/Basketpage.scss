@@ -26,13 +26,14 @@
 
   &__footer {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    column-gap: 30px;
 
     padding: 20px 0 27px 0;
   }
 
   &__sum {
+    flex-grow: 1;
     font-weight: 400;
     font-size: 21px;
     line-height: 26px;
@@ -54,5 +55,6 @@
     color: #131313;
     padding: 13px 40px;
     background-color: #D58C51;
+
   }
 }

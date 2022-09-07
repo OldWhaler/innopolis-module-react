@@ -2,7 +2,7 @@ import CardInBasket from "../CardInBasket/CardInBasket";
 
 import './CardInBasketList.scss'
 
-function CardInBasketList({ prodInBasetIdList, setProdInBasetIdList, setbasketSum }) {
+function CardInBasketList({ prodInBasetIdList, setProdInBasetIdList, setbasketSum, setBasketCounter }) {
   return (
     <div className="cardInBasketList">
       {prodInBasetIdList.map(id =>
@@ -11,6 +11,7 @@ function CardInBasketList({ prodInBasetIdList, setProdInBasetIdList, setbasketSu
           prodId={id}
           setProdInBasetIdList={setProdInBasetIdList}
           setbasketSum={setbasketSum}
+          setBasketCounter={setBasketCounter}
         />)}
     </div>
   );

@@ -3,13 +3,19 @@ import { products } from '../../products-list';
 
 import './CardsList.scss'
 
-function Cards({ setBasketCounter,
+function Cards({
+  setBasketCounter,
   setbasketSum,
-  setProdInBasetIdList }) {
+  setProdInBasetIdList,
+  prodInBasetIdList }) {
 
   function cardsClickHandler(event) {
     const target = event.target;
     const dishId = target.dataset.dishId;
+    if (prodInBasetIdList.includes(dishId)) {
+      alert('Такой товар уже есть в корзине!')
+      return;
+    };
     if (!target.classList.contains('card__button')) return;
 
     const dish = products.filter(item => item.id === dishId)[0];
