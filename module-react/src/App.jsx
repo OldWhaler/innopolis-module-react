@@ -11,27 +11,25 @@ function App() {
   let [prodInBasetIdList, setProdInBasetIdList] = useState([]);
 
   return (
-    <div className="container">
-      <Routes>
-        <Route index path='/' element={
-          <Productspage
-            basketCounter={basketCounter}
-            setBasketCounter={setBasketCounter}
-            basketSum={basketSum}
-            setbasketSum={setbasketSum}
-            prodInBasetIdList={prodInBasetIdList}
-            setProdInBasetIdList={setProdInBasetIdList} />
-        } />
-        <Route path='basket' element={
-          <Basketpage
-            basketSum={basketSum}
-            setbasketSum={setbasketSum}
-            prodInBasetIdList={prodInBasetIdList}
-            setProdInBasetIdList={setProdInBasetIdList}
-            setBasketCounter={setBasketCounter} />
-        } />
-      </Routes>
-    </div>
+    <Routes>
+      <Route index path='/' element={
+        <Productspage
+          basketCounter={basketCounter}
+          setBasketCounter={setBasketCounter}
+          basketSum={basketSum}
+          setbasketSum={setbasketSum}
+          prodInBasetIdList={prodInBasetIdList}
+          setProdInBasetIdList={setProdInBasetIdList} />
+      } />
+      <Route path='basket' element={
+        <Basketpage
+          basketSum={basketSum}
+          setbasketSum={setbasketSum}
+          prodInBasetIdList={prodInBasetIdList}
+          setProdInBasetIdList={setProdInBasetIdList}
+          setBasketCounter={setBasketCounter} />
+      } />
+    </Routes>
   );
 }
 
