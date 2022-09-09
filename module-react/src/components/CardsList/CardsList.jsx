@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 import Card from "../Card/Card";
 import { products } from '../../products-list';
 
@@ -12,10 +13,6 @@ function Cards({
   function cardsClickHandler(event) {
     const target = event.target;
     const dishId = target.dataset.dishId;
-    if (prodInBasetIdList.includes(dishId)) {
-      alert('Такой товар уже есть в корзине!')
-      return;
-    };
     if (!target.classList.contains('card__button')) return;
 
     const dish = products.filter(item => item.id === dishId)[0];
@@ -27,7 +24,7 @@ function Cards({
 
   return (
     <main className="cards-list" onClick={cardsClickHandler}>
-      {products.map(prod => <Card key={prod.id} data={prod} />)}
+      {products.map(prod => <Card key={uniqid()} data={prod} />)}
     </main>
   )
 }
