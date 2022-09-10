@@ -3,7 +3,7 @@ import './Card.scss';
 function Card(props) {
   const { id, name, description, price, weight, img } = props.data;
   return (
-    <div id={id} className="card">
+    <li id={id} className="card">
       <div>
         <img className='card__img' src={`images/${img}`} alt="dish" />
         <h2 className="card__title">{name}</h2>
@@ -17,7 +17,7 @@ function Card(props) {
         </p>
         <button className='card__button' data-dish-id={id}></button>
       </div>
-    </div>
+    </li>
   )
 }
 

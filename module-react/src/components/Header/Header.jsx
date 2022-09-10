@@ -1,7 +1,12 @@
-import './Header.scss';
-import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-function Header({ basketCounter, basketSum }) {
+import './Header.scss';
+
+function Header() {
+  const basketCounter = useSelector(store => store.basketReducer.counter);
+  const basketSum = useSelector(store => store.basketReducer.sum);
+
   return (
     <header className="header">
       <h1 className="header__title">наша продукция</h1>

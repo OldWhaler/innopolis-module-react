@@ -1,20 +1,16 @@
+import { useSelector } from 'react-redux';
+
 import uniqid from 'uniqid';
 import CardInBasket from "../CardInBasket/CardInBasket";
 
 import './CardInBasketList.scss'
 
-function CardInBasketList({ prodInBasetIdList, setProdInBasetIdList, setbasketSum, setBasketCounter }) {
+function CardInBasketList() {
+  const idList = useSelector(store => store.basketReducer.idList);
   return (
-    <div className="cardInBasketList">
-      {prodInBasetIdList.map(id =>
-        <CardInBasket
-          key={uniqid()}
-          prodId={id}
-          setProdInBasetIdList={setProdInBasetIdList}
-          setbasketSum={setbasketSum}
-          setBasketCounter={setBasketCounter}
-        />)}
-    </div>
+    <ul className="cardInBasketList">
+      {idList.map(id => <CardInBasket key={uniqid()} prodId={id} />)}
+    </ul>
   );
 }
 

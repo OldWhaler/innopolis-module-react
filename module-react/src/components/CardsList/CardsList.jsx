@@ -1,32 +1,34 @@
 import uniqid from 'uniqid';
+
+import { useDispatch } from 'react-redux';
+import { changeCounter, changeSum, addToIdList } from '../../store/basketSlice';
+
 import Card from "../Card/Card";
+
 import { products } from '../../products-list';
 
 import './CardsList.scss'
 
-function Cards({
-  setBasketCounter,
-  setbasketSum,
-  setProdInBasetIdList,
-  prodInBasetIdList }) {
+function CardsList() {
+  const dispatch = useDispatch();
 
-  function cardsClickHandler(event) {
+  function cardsListClickHandler(event) {
     const target = event.target;
-    const dishId = target.dataset.dishId;
     if (!target.classList.contains('card__button')) return;
 
+    const dishId = target.dataset.dishId;
     const dish = products.filter(item => item.id === dishId)[0];
 
-    setProdInBasetIdList((currentProdInBasetIdList) => [...currentProdInBasetIdList, dishId]);
-    setbasketSum((currenBasketSum) => currenBasketSum + +dish.price);
-    setBasketCounter((currentCounter) => currentCounter + 1);
+    dispatch(changeCounter(1));
+    dispatch(changeSum(+dish.price));
+    dispatch(addToIdList(dishId))
   }
 
   return (
-    <main className="cards-list" onClick={cardsClickHandler}>
+    <ul className="cards-list" onClick={cardsListClickHandler}>
       {products.map(prod => <Card key={uniqid()} data={prod} />)}
-    </main>
+    </ul>
   )
 }
 
-export default Cards
+export default CardsList

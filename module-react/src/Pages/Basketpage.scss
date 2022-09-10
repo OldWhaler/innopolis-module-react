@@ -17,6 +17,21 @@
   }
 
   &__header {
+    position: relative;
+  }
+
+  &__header-btn {
+    background: url('../../public/images/arrow.svg') no-repeat center/50%;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #D58C51;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 3px;
+  }
+
+  &__headling {
     font-weight: 700;
     font-size: 31px;
     line-height: 38px;
