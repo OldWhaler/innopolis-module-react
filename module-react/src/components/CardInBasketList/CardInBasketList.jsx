@@ -9,7 +9,8 @@ function CardInBasketList() {
   const idList = useSelector(store => store.basketReducer.idList);
   return (
     <ul className="cardInBasketList">
-      {idList.map(id => <CardInBasket key={uniqid()} prodId={id} />)}
+
+      {idList.map(({ id, amount }) => <CardInBasket key={uniqid()} prodId={id} amount={amount} />)}
     </ul>
   );
 }

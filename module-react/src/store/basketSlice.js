@@ -6,21 +6,35 @@ const basketSlice = createSlice({
     counter: 0,
     sum: 0,
     idList: []
+    /* {
+      id: number|string
+      amount: number
+    } */
   },
   reducers: {
     changeCounter(state, action) {
       state.counter = state.counter + action.payload
     },
+
     changeSum(state, action) {
       state.sum = state.sum + action.payload
     },
+
     addToIdList(state, action) {
-      state.idList.push(action.payload)
-      state.idList.sort((a, b) => a - b)
+      const newId = action.payload;
+      const elem = state.idList.find(({ id }) => id === newId);
+      elem ? elem.amount++ : state.idList.push({ id: newId, amount: 1 })
     },
+
     removeFromIdList(state, action) {
-      const removableId = state.idList.indexOf(action.payload);
-      state.idList.splice(removableId, 1)
+      const deleteId = action.payload;
+      const elem = state.idList.find(({ id }) => id === deleteId);
+
+      if (elem.amount === 1) {
+        state.idList = state.idList.filter(({ id }) => id !== deleteId)
+      } else {
+        elem.amount--
+      }
     }
   }
 })
