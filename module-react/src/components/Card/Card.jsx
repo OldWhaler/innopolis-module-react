@@ -23,7 +23,7 @@ function Card(props) {
           <span className='card__dish-price'>{price}&#8381;</span>
           <sub className="card__dish-weight">/{weight}</sub>
         </p>
-        <button className='card__button' data-dish-id={id} onClick={(e) => AddInBasket(e, dispatch)}></button>
+        <button className='card__button' data-dish-id={id} onClick={(e) => AddInBasket(e, dispatch)} />
       </div>
     </li>
   )
