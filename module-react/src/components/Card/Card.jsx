@@ -1,13 +1,17 @@
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import AddInBasket from '../Handlers/AddInBasket';
+import ShowDishCard from '../Handlers/ShowDishCard';
 
 import './Card.scss';
 
 function Card(props) {
   const { id, name, description, price, weight, img } = props.data;
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   return (
-    <li id={id} className="card">
+    <li id={id} className="card" onClick={(e) => ShowDishCard(e, id, navigate)}>
       <div>
         <img className='card__img' src={`images/${img}`} alt="dish" />
         <h2 className="card__title">{name}</h2>
