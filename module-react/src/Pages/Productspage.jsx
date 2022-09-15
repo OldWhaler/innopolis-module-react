@@ -1,10 +1,10 @@
-import Header from '../components/Header/Header';
+import Header from '../components/Headers/ProductHeader';
 import CardsList from '../components/CardsList/CardsList';
 
 function Productspage() {
   return (
     <div className="container">
-      <Header />
+      <Header text={'наша продукция'} />
       <CardsList />
     </div>
   );

@@ -1,7 +1,11 @@
+import { useDispatch } from 'react-redux';
+import AddInBasket from '../Handlers/AddInBasket';
+
 import './Card.scss';
 
 function Card(props) {
   const { id, name, description, price, weight, img } = props.data;
+  const dispatch = useDispatch();
   return (
     <li id={id} className="card">
       <div>
@@ -15,7 +19,7 @@ function Card(props) {
           <span className='card__dish-price'>{price}&#8381;</span>
           <sub className="card__dish-weight">/{weight}</sub>
         </p>
-        <button className='card__button' data-dish-id={id}></button>
+        <button className='card__button' data-dish-id={id} onClick={(e) => AddInBasket(e, dispatch)}></button>
       </div>
     </li>
   )

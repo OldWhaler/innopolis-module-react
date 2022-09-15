@@ -1,0 +1,16 @@
+.basket {
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__headling {
+    margin-left: 63px;
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 38px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}

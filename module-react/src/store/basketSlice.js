@@ -6,10 +6,6 @@ const basketSlice = createSlice({
     counter: 0,
     sum: 0,
     idList: []
-    /* {
-      id: number|string
-      amount: number
-    } */
   },
   reducers: {
     changeCounter(state, action) {
@@ -35,10 +31,16 @@ const basketSlice = createSlice({
       } else {
         elem.amount--
       }
+    },
+
+    clearIdList(state) {
+      state.idList = [];
+      state.sum = 0;
+      state.counter = 0;
     }
   }
 })
 
-export const { changeCounter, changeSum, addToIdList, removeFromIdList } = basketSlice.actions;
+export const { changeCounter, changeSum, addToIdList, removeFromIdList, clearIdList } = basketSlice.actions;
 
 export default basketSlice.reducer;

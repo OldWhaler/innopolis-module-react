@@ -6,12 +6,17 @@ import Basketpage from './pages/Basketpage';
 
 import './App.css';
 
+//удалить!!!
+import Cardpage from './pages/Cardpage';
+//удалить!!!
+
 function App() {
   return (
     <Routes>
       <Route index path='/' element={<Productspage />} />
       <Route path='basket' element={<Basketpage />} />
     </Routes>
+    // <Cardpage prodId={'5'} />
   );
 }
 

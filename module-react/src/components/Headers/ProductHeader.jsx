@@ -1,20 +1,21 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import './Header.scss';
+import BackArrowButton from '../Buttons/BackArrowButton';
 
-function Header() {
+import './ProductHeader.scss';
+
+function Header(props = '') {
   const basketCounter = useSelector(store => store.basketReducer.counter);
   const basketSum = useSelector(store => store.basketReducer.sum);
 
   return (
     <header className="header">
-      <h1 className="header__title">наша продукция</h1>
+      <BackArrowButton />
+      <h1 className="header__title">{props.text}</h1>
       <div className="header__basket">
         <p className="header__basket-text"><span>{basketCounter} товара</span><span>на сумму {basketSum} &#8381;</span></p>
-        <Link className="header__basket-img" to='/basket'>
-          <img src="./images/basket.svg" alt="basket" />
-        </Link>
+        <Link className="header__basket-img" to='/basket' />
       </div>
     </header>
   )
