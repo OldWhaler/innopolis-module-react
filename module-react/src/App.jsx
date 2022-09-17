@@ -10,10 +10,10 @@ import './App.css';
 function App() {
   return (
     <Routes>
-      {/* <Route index path='/' element={<Productspage />} />
+      <Route index path='/' element={<Productspage />} />
       <Route path='basket' element={<Basketpage />} />
-      <Route path='/:dishId' element={<Cardpage />} /> */}
-
+      <Route path='/:dishId' element={<Cardpage />} />
+      {/* <Route path='login' element={<Loginpage />} /> */}
     </Routes>
   );
 }

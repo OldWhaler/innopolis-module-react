@@ -7,16 +7,12 @@ function Basketpage() {
 
 
   return (
-    <div className="basket-container">
+    <div className="container">
       <div className="basket">
         <BasketHeader />
-
         <CardInBasketList />
-
         <BasketFooter />
-
       </div>
-
     </div>
   );
 }

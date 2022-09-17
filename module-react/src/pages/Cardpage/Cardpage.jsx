@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Header from "../../components/Headers/ProductHeader";
-import ColoredButton from "../../components/Buttons/ColoredButton";
 import AddInBasket from "../../components/Handlers/AddInBasket";
 
 import { products } from '../../products-list';
@@ -27,7 +26,7 @@ function Cardpage() {
               <p className="description-card___dish-info">
                 <span className='description-card____dish-price'>{price}&#8381;</span>
                 <sub className="description-card____dish-weight">/{weight}</sub>
-                <ColoredButton id={id} text={'В корзину'} handler={(e) => AddInBasket(e, dispatch)} />
+                <button className="button button_colored" onClick={(e) => AddInBasket(e, dispatch)} data-dish-id={id}>В корзину</button>
               </p>
             </div>
           </div>

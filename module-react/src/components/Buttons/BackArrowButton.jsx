@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-import './BackArrowButton.scss'
+import './Buttons.scss'
 
 function BackArrowButton() {
   const navigate = useNavigate();

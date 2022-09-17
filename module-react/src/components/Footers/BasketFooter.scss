@@ -1,6 +1,8 @@
 .basket {
 
   &__footer {
+    margin: 0 auto;
+    width: 900px;
     display: flex;
     align-items: center;
     column-gap: 30px;

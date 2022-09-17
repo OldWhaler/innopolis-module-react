@@ -1,0 +1,24 @@
+.button {
+  width: 200px;
+  height: 42px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #D58C51;
+  border: 1px solid #D58C51;
+  background-color: transparent;
+
+  &_colored {
+    border: 1px solid transparent;
+    background-color: #D58C51;
+    color: #131313;
+  }
+}
+
+.back-arrow-button {
+  background: url('../../../public/images/arrow.svg') no-repeat center/50%;
+  height: 32px;
+  width: 32px;
+  border: 1px solid #D58C51;
+  border-radius: 50%;
+}

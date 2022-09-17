@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import BackArrowButton from '../Buttons/BackArrowButton';
+import ExitButton from '../Buttons/ExitButton';
 
 import './ProductHeader.scss';
 
@@ -17,6 +18,7 @@ function Header(props = '') {
         <p className="header__basket-text"><span>{basketCounter} товара</span><span>на сумму {basketSum} &#8381;</span></p>
         <Link className="header__basket-img" to='/basket' />
       </div>
+      <ExitButton />
     </header>
   )
 }
