@@ -1,6 +1,6 @@
-import CardInBasketList from '../components/CardInBasketList/CardInBasketList';
-import BasketHeader from '../components/Headers/BasketHeader';
-import BasketFooter from '../components/Footers/BasketFooter';
+import CardInBasketList from '../../components/CardInBasketList/CardInBasketList';
+import BasketHeader from '../../components/Headers/BasketHeader';
+import BasketFooter from '../../components/Footers/BasketFooter';
 import './Basketpage.scss'
 
 function Basketpage() {

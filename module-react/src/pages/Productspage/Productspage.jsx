@@ -1,5 +1,5 @@
-import Header from '../components/Headers/ProductHeader';
-import CardsList from '../components/CardsList/CardsList';
+import Header from '../../components/Headers/ProductHeader';
+import CardsList from '../../components/CardsList/CardsList';
 
 function Productspage() {
   return (

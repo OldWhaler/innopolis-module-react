@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Header from "../components/Headers/ProductHeader";
-import ColoredButton from "../components/Buttons/ColoredButton";
-import AddInBasket from "../components/Handlers/AddInBasket";
+import Header from "../../components/Headers/ProductHeader";
+import ColoredButton from "../../components/Buttons/ColoredButton";
+import AddInBasket from "../../components/Handlers/AddInBasket";
 
-import { products } from '../products-list';
+import { products } from '../../products-list';
 
 import './Cardpage.scss';
 
