@@ -1,0 +1,50 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background: #C4C4C4 url('../../../public/images/loginBG.jpg') center/cover no-repeat, ;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+  }
+}
+
+.login {
+  &__form {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+
+    padding: 35px 20px;
+    background: #FFFFFF;
+  }
+
+  &__headling {
+    margin-bottom: 36px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 38px;
+    text-transform: uppercase;
+    color: #161516;
+  }
+
+  &__input {
+    margin-bottom: 15px;
+    padding: 10px 18px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #161516;
+    border: 1px solid #D58C51;
+    border-radius: 61px;
+  }
+}
