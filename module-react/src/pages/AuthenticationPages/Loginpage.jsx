@@ -1,11 +1,14 @@
+import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
 
-import './Loginpage.scss'
+import './Authentication.scss'
 
 function Loginpage() {
+  const [errorParagraphText, setErrorParagraphText] = useState('')
   const navigate = useNavigate()
+  const validateErrorParagraph = useRef();
 
   const {
     register,
@@ -16,18 +19,22 @@ function Loginpage() {
   });
 
   const onSubmit = (data) => {
-    console.log(JSON.stringify(data))
+    const { login, password } = data;
 
-    navigate('/')
+    if (localStorage.getItem(login) === password) {
+      navigate('/')
+    } else {
+      setErrorParagraphText('Логин или пароль неверен')
+      setTimeout(() => setErrorParagraphText(''), 3000)
+    }
   }
-
 
   return (
     <div className="login">
       <div className="login__wrapper">
 
         <form className='login__form' onSubmit={handleSubmit(onSubmit)}>
-          <Link className="login__link" to='/basket' >Зарегистрироваться</Link>
+          <Link className="login__link" to='/registration' >Зарегистрироваться</Link>
           <h2 className="login__headling">вход</h2>
 
 
@@ -56,6 +63,7 @@ function Loginpage() {
             <label className='login__checkbox-label' htmlFor="checkbox-input" />
             <p className='login__checkbox-text'>Я согласен получать обновления на почту</p>
           </div>
+          <p className='login__validate-error' ref={validateErrorParagraph}>{errorParagraphText}</p>
           <button className='button button_colored' type="submit">Войти</button>
         </form>
 
