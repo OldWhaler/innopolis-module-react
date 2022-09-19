@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Navigate } from 'react-router';
 
 import Productspage from './pages/Productspage/Productspage';
 import Basketpage from './pages/Basketpage/Basketpage';
@@ -18,7 +18,7 @@ function App() {
       <Route path='/products/:dishId' element={<Cardpage />} />
       <Route path='/login' element={<Loginpage />} />
       <Route path='/registration' element={<Registrationpage />} />
-      <Route path='*' element={<Productspage />} />
+      <Route path='*' element={<Navigate to='products' replace />} />
     </Routes>
   );
 }

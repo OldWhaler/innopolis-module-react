@@ -10,7 +10,7 @@ const appSlice = createSlice({
   },
   reducers: {
     changeLoginStatus(state, action) {
-      state.logged = action;
+      state.logged = action.payload;
     },
     changeCounter(state, action) {
       state.counter = state.counter + action.payload
@@ -37,7 +37,7 @@ const appSlice = createSlice({
       }
     },
 
-    clearIdList(state) {
+    clearBasket(state) {
       state.idList = [];
       state.sum = 0;
       state.counter = 0;
@@ -45,6 +45,6 @@ const appSlice = createSlice({
   }
 })
 
-export const { changeLoginStatus, changeCounter, changeSum, addToIdList, removeFromIdList, clearIdList } = appSlice.actions;
+export const { changeLoginStatus, changeCounter, changeSum, addToIdList, removeFromIdList, clearBasket } = appSlice.actions;
 
 export default appSlice.reducer;

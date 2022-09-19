@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { clearIdList } from '../../store/appSlice';
+import { clearBasket } from '../../store/appSlice';
 
 
 import './BasketFooter.scss'
@@ -15,10 +15,10 @@ function BasketFooter() {
     if (basketSum === 0) return
     if (logged) {
       navigate('/');
-      dispatch(clearIdList())
-      alert('Вы оформили заказ!');
+      dispatch(clearBasket())
+      alert(`Заказ оформлен!`);
     } else {
-      alert('Для оформления заказа необходимо зарегистрироваться.')
+      alert('Для оформления заказа необходимо войти используя логин и пароль.')
     }
   }
 
