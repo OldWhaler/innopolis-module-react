@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import BackArrowButton from '../Buttons/BackArrowButton';
 import AuthenticationButton from '../Buttons/AuthenticationButton';
 
-import './ProductHeader.scss';
+import './Header.scss';
 
-function Header(props = '') {
+function Header({ headlingText, needBasketInfo, needBackArrowButton }) {
   const basketCounter = useSelector(store => store.appReducer.counter);
   const basketSum = useSelector(store => store.appReducer.sum);
 
@@ -26,17 +26,20 @@ function Header(props = '') {
     return five;
   }
 
+  const basketInfo =
+    <div className="header__basket">
+      <p className="header__basket-text">
+        <span>{basketCounter} {getNoun(basketCounter, 'товар', 'товара', 'товаров')}</span>
+        <span>на сумму {basketSum} &#8381;</span>
+      </p>
+      <Link className="header__basket-img" to='/basket' />
+    </div>
+
   return (
     <header className="header">
-      <BackArrowButton />
-      <h1 className="header__title">{props.text}</h1>
-      <div className="header__basket">
-        <p className="header__basket-text">
-          <span>{basketCounter} {getNoun(basketCounter, 'товар', 'товара', 'товаров')}</span>
-          <span>на сумму {basketSum} &#8381;</span>
-        </p>
-        <Link className="header__basket-img" to='/basket' />
-      </div>
+      {needBackArrowButton && <BackArrowButton />}
+      <h1 className="header__title">{headlingText}</h1>
+      {needBasketInfo && basketInfo}
       <AuthenticationButton />
     </header>
   )

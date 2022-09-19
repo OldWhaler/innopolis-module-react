@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import Productspage from '../Productspage/Productspage';
-import Header from "../../components/Headers/ProductHeader";
+import Header from "../../components/Header/Header";
 import AddInBasket from "../../components/Handlers/AddInBasket";
 import { products } from '../../products-list';
 
@@ -12,6 +12,12 @@ function Cardpage() {
   const { dishId } = useParams()
   const dispatch = useDispatch();
 
+  const data = {
+    headlingText: '',
+    needBasketInfo: true,
+    needBackArrowButton: true
+  }
+
   const product = products.filter(({ id }) => id === dishId)[0];
   if (!product) return <Productspage />
 
@@ -20,7 +26,7 @@ function Cardpage() {
   return (
     <>
       <div className="container">
-        <Header />
+        <Header {...data} />
         <div className="description-card">
           <div className="description-card__wrapper">
             <img src={`${__dirname}images/${img}`} alt="" className="description-card__img" />
