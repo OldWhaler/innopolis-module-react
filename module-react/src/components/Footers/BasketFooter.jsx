@@ -1,19 +1,25 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { clearIdList } from '../../store/basketSlice';
+import { clearIdList } from '../../store/appSlice';
 
 
 import './BasketFooter.scss'
 
 function BasketFooter() {
-  const basketSum = useSelector(store => store.basketReducer.sum);
+  const basketSum = useSelector(store => store.appReducer.sum);
+  const logged = useSelector(store => store.appReducer.logged);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const makeOrder = () => {
-    navigate('/');
-    dispatch(clearIdList())
-    alert('Вы оформили заказ');
+    if (basketSum === 0) return
+    if (logged) {
+      navigate('/');
+      dispatch(clearIdList())
+      alert('Вы оформили заказ!');
+    } else {
+      alert('Для оформления заказа необходимо зарегистрироваться.')
+    }
   }
 
   return (

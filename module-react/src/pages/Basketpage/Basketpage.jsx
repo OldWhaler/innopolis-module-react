@@ -4,8 +4,6 @@ import BasketFooter from '../../components/Footers/BasketFooter';
 import './Basketpage.scss'
 
 function Basketpage() {
-
-
   return (
     <div className="container">
       <div className="basket">

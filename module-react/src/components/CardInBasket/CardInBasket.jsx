@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeCounter, changeSum, removeFromIdList } from '../../store/basketSlice';
+import { changeCounter, changeSum, removeFromIdList } from '../../store/appSlice';
 
 import { products } from '../../products-list';
 import ShowDishCard from '../Handlers/ShowDishCard';

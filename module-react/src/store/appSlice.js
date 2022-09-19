@@ -1,13 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const basketSlice = createSlice({
+const appSlice = createSlice({
   name: 'basket',
   initialState: {
     counter: 0,
     sum: 0,
-    idList: []
+    idList: [],
+    logged: false,
   },
   reducers: {
+    changeLoginStatus(state, action) {
+      state.logged = action;
+    },
     changeCounter(state, action) {
       state.counter = state.counter + action.payload
     },
@@ -41,6 +45,6 @@ const basketSlice = createSlice({
   }
 })
 
-export const { changeCounter, changeSum, addToIdList, removeFromIdList, clearIdList } = basketSlice.actions;
+export const { changeLoginStatus, changeCounter, changeSum, addToIdList, removeFromIdList, clearIdList } = appSlice.actions;
 
-export default basketSlice.reducer;
+export default appSlice.reducer;

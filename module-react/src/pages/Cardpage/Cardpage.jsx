@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
+import Productspage from '../Productspage/Productspage';
 import Header from "../../components/Headers/ProductHeader";
 import AddInBasket from "../../components/Handlers/AddInBasket";
-
 import { products } from '../../products-list';
 
 import './Cardpage.scss';
@@ -11,7 +12,10 @@ function Cardpage() {
   const { dishId } = useParams()
   const dispatch = useDispatch();
 
-  const { img, name, description, price, weight, id } = products.filter(({ id }) => id === dishId)[0];
+  const product = products.filter(({ id }) => id === dishId)[0];
+  if (!product) return <Productspage />
+
+  const { img, name, description, price, weight, id } = product;
 
   return (
     <>
@@ -19,7 +23,7 @@ function Cardpage() {
         <Header />
         <div className="description-card">
           <div className="description-card__wrapper">
-            <img src={`images/${img}`} alt="" className="description-card__img" />
+            <img src={`${__dirname}images/${img}`} alt="" className="description-card__img" />
             <div className="description-card__info">
               <h2 className="description-card__headling">{name}</h2>
               <p className="description-card__desc">{description}</p>

@@ -1,5 +1,5 @@
 import { products } from '../../products-list';
-import { changeCounter, changeSum, addToIdList } from '../../store/basketSlice';
+import { changeCounter, changeSum, addToIdList } from '../../store/appSlice';
 
 function AddInBasket(event, dispatch) {
   const target = event.target;

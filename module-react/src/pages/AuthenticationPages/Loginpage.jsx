@@ -1,31 +1,39 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeLoginStatus } from '../../store/appSlice';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
 
 import './Authentication.scss'
 
 function Loginpage() {
   const [errorParagraphText, setErrorParagraphText] = useState('')
   const navigate = useNavigate()
+  const dispatch = useDispatch();
   const validateErrorParagraph = useRef();
 
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm({
     mode: 'onBlur'
   });
 
   const onSubmit = (data) => {
     const { login, password } = data;
+    const users = JSON.parse(localStorage.getItem('users'));
+    const user = users.find(user => user.login === login);
 
-    if (localStorage.getItem(login) === password) {
+
+    if (user?.password === password) {
+      dispatch(changeLoginStatus(true))
       navigate('/')
     } else {
       setErrorParagraphText('Логин или пароль неверен')
-      setTimeout(() => setErrorParagraphText(''), 3000)
+      reset()
+      setTimeout(() => setErrorParagraphText(''), 2000)
     }
   }
 

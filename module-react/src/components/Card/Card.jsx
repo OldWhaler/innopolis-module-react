@@ -13,7 +13,7 @@ function Card(props) {
   return (
     <li id={id} className="card" onClick={(e) => ShowDishCard(e, id, navigate)}>
       <div>
-        <img className='card__img' src={`images/${img}`} alt="dish" />
+        <img className='card__img' src={`${__dirname}images/${img}`} alt="dish" />
         <h2 className="card__title">{name}</h2>
         <p className="card__desc">{description}</p>
       </div>

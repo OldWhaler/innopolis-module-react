@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
 
 import './Authentication.scss'
 
@@ -19,12 +18,16 @@ function Registrationpage() {
   const onSubmit = (data) => {
     const { login, password } = data;
 
-    if (localStorage.getItem(login)) {
+    const users = JSON.parse(localStorage.getItem('users'));
+    const user = users.find(user => user.login === login)
+
+    if (user) {
       reset();
       alert('Такой пользователь уже сущетсвует!')
     } else {
-      localStorage.setItem(login, password);
-      navigate('/')
+      users.push({ login, password })
+      localStorage.setItem('users', JSON.stringify(users));
+      navigate('/login')
     }
   }
 
