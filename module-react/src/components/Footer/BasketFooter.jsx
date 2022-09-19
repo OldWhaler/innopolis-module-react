@@ -12,7 +12,6 @@ function BasketFooter() {
   const dispatch = useDispatch();
 
   const makeOrder = () => {
-    if (basketSum === 0) return
     if (logged) {
       navigate('/');
       dispatch(clearBasket())
@@ -25,7 +24,7 @@ function BasketFooter() {
   return (
     <footer className="basket__footer">
       <p className="basket__sum">Заказ на сумму: <span>{basketSum} &#8381;</span></p>
-      <button className="button button_colored" onClick={makeOrder}>Оформить заказ</button>
+      <button className="button button_colored" onClick={makeOrder} disabled={basketSum === 0}>Оформить заказ</button>
     </footer>
   );
 }
