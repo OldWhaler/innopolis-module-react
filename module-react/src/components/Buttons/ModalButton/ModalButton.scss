@@ -1,0 +1,19 @@
+.modal-button {
+  border-radius: 3px;
+  padding: 7px 14px;
+  font-size: 15px;
+
+  text-transform: uppercase;
+
+  &_dark {
+    border: 1px solid #D58C51;
+    color: #D58C51;
+    background-color: transparent;
+  }
+
+  &_light {
+    border: 1px solid #161516;
+    color: #161516;
+    background-color: transparent;
+  }
+}

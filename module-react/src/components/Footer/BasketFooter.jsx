@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { clearBasket } from '../../store/appSlice';
+import { clearBasket, changeModalData, toggleModalVisability } from '../../store/appSlice';
 
 
 import './BasketFooter.scss'
@@ -8,16 +7,25 @@ import './BasketFooter.scss'
 function BasketFooter() {
   const basketSum = useSelector(store => store.appReducer.sum);
   const logged = useSelector(store => store.appReducer.logged);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const makeOrder = () => {
+    dispatch(toggleModalVisability());
     if (logged) {
-      navigate('/');
-      dispatch(clearBasket())
-      alert(`Заказ оформлен!`);
+      dispatch(clearBasket());
+      dispatch(changeModalData(
+        {
+          text: 'Заказ оформлен! Благодарим за покупку!',
+          colorTheme: 'dark'
+        }
+      ));
     } else {
-      alert('Для оформления заказа необходимо войти используя логин и пароль.')
+      dispatch(changeModalData(
+        {
+          text: 'Для оформления заказа необходимо войти используя логин и пароль.',
+          colorTheme: 'dark'
+        }
+      ));
     }
   }
 

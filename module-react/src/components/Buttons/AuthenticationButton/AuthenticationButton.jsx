@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { changeLoginStatus, clearBasket } from '../../store/appSlice';
+import { changeLoginStatus, clearBasket } from '../../../store/appSlice';
+
+import './AuthenticationButton.scss'
 
 function AuthenticationButton() {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import BackArrowButton from '../Buttons/BackArrowButton';
-import AuthenticationButton from '../Buttons/AuthenticationButton';
+import BackArrowButton from '../Buttons/BackArrowButton/BackArrowButton';
+import AuthenticationButton from '../Buttons/AuthenticationButton/AuthenticationButton';
 
 import './Header.scss';
 

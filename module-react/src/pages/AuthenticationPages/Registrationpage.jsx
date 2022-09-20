@@ -1,10 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeModalData, toggleModalVisability } from '../../store/appSlice';
 
 import './Authentication.scss'
 
 function Registrationpage() {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -16,6 +19,7 @@ function Registrationpage() {
   });
 
   const onSubmit = (data) => {
+
     const { login, password } = data;
 
     const users = JSON.parse(localStorage.getItem('users'));
@@ -23,7 +27,13 @@ function Registrationpage() {
 
     if (user) {
       reset();
-      alert('Такой пользователь уже сущетсвует!')
+      dispatch(toggleModalVisability());
+      dispatch(changeModalData(
+        {
+          text: 'Такой пользователь уже сущетсвует!',
+          colorTheme: 'light'
+        }
+      ));
     } else {
       users.push({ login, password })
       localStorage.setItem('users', JSON.stringify(users));
