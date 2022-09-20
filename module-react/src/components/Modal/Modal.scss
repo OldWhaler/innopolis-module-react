@@ -30,6 +30,7 @@
 
 
   &__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,6 +39,10 @@
     padding: 10px 15px;
     width: 450px;
     height: 200px;
+
+    animation-name: modal-content;
+    animation-duration: 700ms;
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   &__text {
@@ -46,6 +51,14 @@
   }
 }
 
-.hidden {
-  display: none;
+@keyframes modal-content {
+  0% {
+    bottom: calc(50vh - 200px);
+    opacity: 0;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
 }
