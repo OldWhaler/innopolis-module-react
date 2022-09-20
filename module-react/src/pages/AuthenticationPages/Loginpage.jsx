@@ -29,7 +29,7 @@ function Loginpage() {
 
     if (user?.password === password) {
       dispatch(changeLoginStatus(true))
-      navigate(-1)
+      navigate('/products')
     } else {
       setErrorParagraphText('Логин или пароль неверен')
       reset()
