@@ -33,7 +33,7 @@ function Loginpage() {
     } else {
       setErrorParagraphText('Логин или пароль неверен')
       reset()
-      setTimeout(() => setErrorParagraphText(''), 2000)
+      setTimeout(() => setErrorParagraphText(''), 3000)
     }
   }
 
@@ -67,10 +67,17 @@ function Loginpage() {
 
 
           <div className="login__checkbox">
-            <input className='login__checkbox-input' type="checkbox" name="" id="checkbox-input" />
+            <input className='login__checkbox-input'
+              type="checkbox"
+              id="checkbox-input"
+              {...register('checkbox', {
+                required: 'Поле не должно быть пустым',
+              })} />
             <label className='login__checkbox-label' htmlFor="checkbox-input" />
             <p className='login__checkbox-text'>Я согласен получать обновления на почту</p>
           </div>
+          <p className="login__input-error">{errors?.checkbox?.message || ''}</p>
+
           <p className='login__validate-error' ref={validateErrorParagraph}>{errorParagraphText}</p>
           <button className='button button_colored' type="submit">Войти</button>
         </form>

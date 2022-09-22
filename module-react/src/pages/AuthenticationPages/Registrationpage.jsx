@@ -72,10 +72,17 @@ function Registrationpage() {
 
 
           <div className="registration__checkbox">
-            <input className='registration__checkbox-input' type="checkbox" name="" id="checkbox-input" />
+            <input className='registration__checkbox-input'
+              type="checkbox"
+              id="checkbox-input"
+              {...register('checkbox', {
+                required: 'Поле не должно быть пустым',
+              })} />
             <label className='registration__checkbox-label' htmlFor="checkbox-input" />
             <p className='registration__checkbox-text'>Я согласен получать обновления на почту</p>
           </div>
+          <p className="registration__input-error">{errors?.checkbox?.message || ''}</p>
+
           <p className='login__validate-error' />
           <button className='button button_colored' type="submit">Зарегистрироваться</button>
         </form>
