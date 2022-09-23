@@ -1,15 +1,20 @@
 import CardInBasketList from '../../components/CardInBasketList/CardInBasketList';
-import BasketHeader from '../../components/Headers/BasketHeader';
-import BasketFooter from '../../components/Footers/BasketFooter';
+import Header from "../../components/Header/Header";
+import BasketFooter from '../../components/Footer/BasketFooter';
 import './Basketpage.scss'
 
 function Basketpage() {
 
+  const data = {
+    headlingText: 'Корзина с выбранными товарами',
+    needBasketInfo: false,
+    needBackArrowButton: true
+  }
 
   return (
     <div className="container">
       <div className="basket">
-        <BasketHeader />
+        <Header {...data} />
         <CardInBasketList />
         <BasketFooter />
       </div>

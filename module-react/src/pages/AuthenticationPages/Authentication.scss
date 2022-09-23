@@ -96,13 +96,14 @@
     }
 
     &-label {
-      display: inline-flex;
+      display: flex;
       justify-content: center;
       align-items: center;
       width: 18px;
       height: 18px;
       border: 1px solid #D58C51;
       border-radius: 50%;
+      cursor: pointer;
     }
 
     &-text {

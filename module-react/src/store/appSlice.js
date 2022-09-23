@@ -1,13 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const basketSlice = createSlice({
+const appSlice = createSlice({
   name: 'basket',
   initialState: {
     counter: 0,
     sum: 0,
-    idList: []
+    idList: [],
+    logged: false,
+    modalVisability: false,
+    modalData: {}
+
   },
   reducers: {
+    changeModalData(state, action) {
+      state.modalData = action.payload;
+    },
+
+    toggleModalVisability(state) {
+      state.modalVisability = !state.modalVisability;
+    },
+
+    changeLoginStatus(state, action) {
+      state.logged = action.payload;
+    },
+
     changeCounter(state, action) {
       state.counter = state.counter + action.payload
     },
@@ -33,7 +49,7 @@ const basketSlice = createSlice({
       }
     },
 
-    clearIdList(state) {
+    clearBasket(state) {
       state.idList = [];
       state.sum = 0;
       state.counter = 0;
@@ -41,6 +57,6 @@ const basketSlice = createSlice({
   }
 })
 
-export const { changeCounter, changeSum, addToIdList, removeFromIdList, clearIdList } = basketSlice.actions;
+export const { changeModalData, toggleModalVisability, changeLoginStatus, changeCounter, changeSum, addToIdList, removeFromIdList, clearBasket } = appSlice.actions;
 
-export default basketSlice.reducer;
+export default appSlice.reducer;

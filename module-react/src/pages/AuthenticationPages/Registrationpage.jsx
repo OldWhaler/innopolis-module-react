@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeModalData, toggleModalVisability } from '../../store/appSlice';
 
 import './Authentication.scss'
 
 function Registrationpage() {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
 
   const {
     register,
@@ -17,14 +19,25 @@ function Registrationpage() {
   });
 
   const onSubmit = (data) => {
+
     const { login, password } = data;
 
-    if (localStorage.getItem(login)) {
+    const users = JSON.parse(localStorage.getItem('users'));
+    const user = users.find(user => user.login === login)
+
+    if (user) {
       reset();
-      alert('Такой пользователь уже сущетсвует!')
+      dispatch(toggleModalVisability());
+      dispatch(changeModalData(
+        {
+          text: 'Такой пользователь уже сущетсвует!',
+          colorTheme: 'light'
+        }
+      ));
     } else {
-      localStorage.setItem(login, password);
-      navigate('/')
+      users.push({ login, password })
+      localStorage.setItem('users', JSON.stringify(users));
+      navigate('/login')
     }
   }
 
@@ -59,11 +72,18 @@ function Registrationpage() {
 
 
           <div className="registration__checkbox">
-            <input className='registration__checkbox-input' type="checkbox" name="" id="checkbox-input" />
+            <input className='registration__checkbox-input'
+              type="checkbox"
+              id="checkbox-input"
+              {...register('checkbox', {
+                required: 'Поле не должно быть пустым',
+              })} />
             <label className='registration__checkbox-label' htmlFor="checkbox-input" />
             <p className='registration__checkbox-text'>Я согласен получать обновления на почту</p>
           </div>
-          <p className='registration__validate-error' />
+          <p className="registration__input-error">{errors?.checkbox?.message || ''}</p>
+
+          <p className='login__validate-error' />
           <button className='button button_colored' type="submit">Зарегистрироваться</button>
         </form>
 

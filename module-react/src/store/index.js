@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import basketReducer from './basketSlice'
+import appReducer from './appSlice'
 
 export default configureStore({
   reducer: {
-    basketReducer: basketReducer,
+    appReducer: appReducer,
   }
 });

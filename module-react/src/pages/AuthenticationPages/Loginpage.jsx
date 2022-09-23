@@ -1,30 +1,38 @@
 import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { changeLoginStatus } from '../../store/appSlice';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
 
 import './Authentication.scss'
 
 function Loginpage() {
   const [errorParagraphText, setErrorParagraphText] = useState('')
   const navigate = useNavigate()
+  const dispatch = useDispatch();
   const validateErrorParagraph = useRef();
 
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm({
     mode: 'onBlur'
   });
 
   const onSubmit = (data) => {
     const { login, password } = data;
+    const users = JSON.parse(localStorage.getItem('users'));
+    const user = users.find(user => user.login === login);
 
-    if (localStorage.getItem(login) === password) {
-      navigate('/')
+
+    if (user?.password === password) {
+      dispatch(changeLoginStatus(true))
+      navigate('/products')
     } else {
       setErrorParagraphText('Логин или пароль неверен')
+      reset()
       setTimeout(() => setErrorParagraphText(''), 3000)
     }
   }
@@ -59,10 +67,17 @@ function Loginpage() {
 
 
           <div className="login__checkbox">
-            <input className='login__checkbox-input' type="checkbox" name="" id="checkbox-input" />
+            <input className='login__checkbox-input'
+              type="checkbox"
+              id="checkbox-input"
+              {...register('checkbox', {
+                required: 'Поле не должно быть пустым',
+              })} />
             <label className='login__checkbox-label' htmlFor="checkbox-input" />
             <p className='login__checkbox-text'>Я согласен получать обновления на почту</p>
           </div>
+          <p className="login__input-error">{errors?.checkbox?.message || ''}</p>
+
           <p className='login__validate-error' ref={validateErrorParagraph}>{errorParagraphText}</p>
           <button className='button button_colored' type="submit">Войти</button>
         </form>
